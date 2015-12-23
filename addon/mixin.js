@@ -104,9 +104,8 @@ export default Ember.Mixin.create({
     return meta;
   },
 
-  normalizeResponse (store, primaryModelClass, payload, id, requestType) {
-    const isSingle = this.isSinglePayload(payload, requestType),
-      documentHash = {},
+  _normalizeResponse (store, primaryModelClass, payload, id, requestType, isSingle) {
+    const documentHash = {},
       meta = this.extractMeta(store, requestType, payload, primaryModelClass),
       included = [];
 
